@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D8C07C5-6A78-4245-B9E4-A786D0AF3D6E}</ProjectGuid>
+    <ProjectGuid>{DB7AF135-D0C7-4B94-BB9D-4A49DC580EBB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Ejercicio_1</RootNamespace>
-    <AssemblyName>Ejercicio-1</AssemblyName>
+    <RootNamespace>Ejercicio_2</RootNamespace>
+    <AssemblyName>Ejercicio-2</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ejercicio1.cs" />
+    <Compile Include="ejercicio2.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

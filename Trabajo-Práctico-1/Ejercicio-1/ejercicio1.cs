@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Ejercicio_1
 {
-    class Program
+    class ejercicio1
     {
         static void Main(string[] args)
         {
@@ -21,6 +21,29 @@ namespace Ejercicio_1
                     Console.WriteLine("El número " + i + " es divisible por 2 y 5.");
                 }
             }
+
+            /*int x = 1;
+            while (x <= 100)
+            {
+                if (x % 10 == 0)
+                {
+                    Console.WriteLine("El número " + i + " es divisible por 2 y 5.");
+                }
+
+                x++;
+            }*/
+
+            /*int z = 1;
+            do
+            {
+                
+                if (z % 10 == 0)
+                {
+                    Console.WriteLine("El número " + z + " es divisible por 2 y 5.");
+                }
+                z++;
+            } while (z <= 100);*/
+
         }
     }
 }
