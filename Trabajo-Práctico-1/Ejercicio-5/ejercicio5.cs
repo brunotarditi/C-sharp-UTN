@@ -18,9 +18,11 @@ namespace Ejercicio_5
         public static void Main(string[] args)
         {
 
+            //variables
             int hora_ingreso, hora_salida, minuto_ingreso, minuto_salida, ingresoMinutos, salidaMinutos;
             double minutosTotales, totales_diurnos, totales_nocturnos, minutos_noche, sueldo = 0;
 
+            //pedir datos de horarios de ingreso y salida
             Console.WriteLine("Ingrese la hora de ingreso: ");
             hora_ingreso = Convert.ToInt32(Console.ReadLine());
 
@@ -44,7 +46,7 @@ namespace Ejercicio_5
 
             while ((salidaMinutos - ingresoMinutos) > 480 && ((salidaMinutos + 1440) - ingresoMinutos) > 480)
             {
-                Console.WriteLine("El empleado no puede trabajar más de 8 horas\n.");
+                Console.WriteLine("El empleado no puede trabajar más de 8 horas.\n");
                 Console.WriteLine("Ingrese la hora de ingreso: ");
                 hora_ingreso = Convert.ToInt32(Console.ReadLine());
 
@@ -59,15 +61,15 @@ namespace Ejercicio_5
 
             }
 
-            //1
+            //1 ingreso mayor o igual que 8 AM Y salida menor a las 20 PM Y el ingreso no debe superar a la salida
             if ((ingresoMinutos >= 480) && (salidaMinutos < 1200) && (ingresoMinutos < salidaMinutos))
             {
                 minutosTotales = salidaMinutos - ingresoMinutos;
                 sueldo = ((minutosTotales * 10)) / 60;
 
             }
-            //2
 
+            //2 ingreso mayor que 8 AM Y menor que 20 PM Y salida mayor que 20 PM y menor que 24
             if ((ingresoMinutos > 480) && (ingresoMinutos < 1200) && (salidaMinutos > 1200) && (salidaMinutos < 1440))
             {
                 totales_diurnos = 1200 - ingresoMinutos;
@@ -75,8 +77,8 @@ namespace Ejercicio_5
                 sueldo = ((totales_diurnos * 10) + (totales_nocturnos * 15)) / 60;
 
             }
-            //3
 
+            //3 ingreso mayor que 8 AM Y menor que 20 PM Y salida mayor a 0 AM Y menor a 8 AM
             if ((ingresoMinutos > 480) && (ingresoMinutos < 1200) && (salidaMinutos > 0) && (salidaMinutos < 480))
             {
                 totales_diurnos = ingresoMinutos - 480;
@@ -84,14 +86,15 @@ namespace Ejercicio_5
                 sueldo = ((totales_diurnos * 10) + (totales_diurnos * 15)) / 60;
 
             }
-            //4
+
+            //4 ingreso mayor a 20 PM Y menor que 24 PM Y  salida mayor que 20 PM y menor que 24 PM pero el ingreso debe ser menor a la salida
             if ((ingresoMinutos > 1200) && (ingresoMinutos < 1440) && (salidaMinutos > 1200) && (salidaMinutos < 1440) && (ingresoMinutos < salidaMinutos))
             {
                 totales_nocturnos = salidaMinutos - ingresoMinutos;
                 sueldo = (totales_nocturnos * 15) / 60;
             }
-            //5
 
+            //5 ingreso mayor que 20 PM Y menor que 24 PM Y salida mayor que 0 AM y menor que 8 AM
             if ((ingresoMinutos > 1200) && (ingresoMinutos < 1440) && (salidaMinutos > 0) && (salidaMinutos < 480))
             {
                 totales_nocturnos = 1440 - ingresoMinutos;
@@ -100,7 +103,7 @@ namespace Ejercicio_5
                 sueldo = (minutosTotales * 15) / 60;
             }
 
-            //6
+            //6 ingreso mayor que 0 AM y menor que 8 AM Y salida menor que 8 AM y que el ingreso sea menor a la salida
             if ((ingresoMinutos > 0) && (ingresoMinutos < 480) && (salidaMinutos < 480) && (ingresoMinutos < salidaMinutos))
             {
                 totales_nocturnos = salidaMinutos - ingresoMinutos;
@@ -108,7 +111,7 @@ namespace Ejercicio_5
                 sueldo = (minutosTotales * 15) / 60;
             }
 
-            //7
+            //7 ingreso mayor que 0 AM Y menor a 8 AM y salida mayor a 8 AM y menor que 20 PM
             if ((ingresoMinutos > 0) && (ingresoMinutos < 480) && (salidaMinutos > 480) && (salidaMinutos < 1200))
             {
                 totales_nocturnos = 480 - ingresoMinutos;
@@ -116,7 +119,7 @@ namespace Ejercicio_5
                 sueldo = (totales_nocturnos * 15 + totales_diurnos * 10) / 60;
             }
 
-            Console.WriteLine("El sueldo es: $" + sueldo);
+            Console.WriteLine("El sueldo es: $" + sueldo.ToString("#.##"));
         }
 
     }
