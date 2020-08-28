@@ -59,6 +59,8 @@ namespace Ejercicio_5
                 Console.WriteLine("Ingrese los minutos de salida: ");
                 minuto_salida = Convert.ToInt32(Console.ReadLine());
 
+                ingresoMinutos = (hora_ingreso * 60) + minuto_ingreso;
+                salidaMinutos = (hora_salida * 60) + minuto_salida;
             }
 
             //1 ingreso mayor o igual que 8 AM Y salida menor a las 20 PM Y el ingreso no debe superar a la salida
