@@ -247,7 +247,7 @@ namespace B1
             Console.WriteLine("Ingrese el denominador de la segunda fracción: ");
             fex.datoDenominador(f2);
 
-            f3.restarFraccion(f1, f2);
+            f3.sumarFraccion(f1, f2);
             Console.WriteLine("La suma de fracciones es: " + f3.cadenaFraccion(f3));
 
             f3.restarFraccion(f1, f2);
