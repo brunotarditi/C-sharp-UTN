@@ -37,7 +37,7 @@ namespace D5
 
 
     }
-    class Program
+    class ejercicio5
     {
         static void Main(string[] args)
         {

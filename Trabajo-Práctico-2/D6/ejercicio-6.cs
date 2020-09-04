@@ -71,7 +71,7 @@ namespace D6
         public double StockTotal { get => stockTotal; set => stockTotal = value; }
         public string Codigo { get => codigo; set => codigo = value; }
     }
-    class Program
+    class ejercicio6
     {
         static void Main(string[] args)
         {

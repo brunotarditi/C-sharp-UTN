@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace C1
 {
-    class Program
+    class ejercicio3
     {
         static void Main(string[] args)
         {

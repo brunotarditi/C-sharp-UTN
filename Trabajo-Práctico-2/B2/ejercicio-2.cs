@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace B2
 {
-    class ejercicio
+    class ejercicio2
     {
         static void Main(string[] args)
         {
