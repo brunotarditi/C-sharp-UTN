@@ -41,6 +41,11 @@ namespace D5
     {
         static void Main(string[] args)
         {
+
+            cheque c = new cheque();
+            c.Guardar();
+            
+
         }
     }
 }
