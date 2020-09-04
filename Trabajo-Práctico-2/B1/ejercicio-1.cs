@@ -118,11 +118,11 @@ namespace B1
             num2 = f2.Numerador;
 
             den1 = f1.Denominador;
-            den2 = f2.Denominador;            
-            
+            den2 = f2.Denominador;
+
             Numerador = num1 * num2;
-            Denominador = den1 * den2;           
-            
+            Denominador = den1 * den2;
+
             return this;
         }
 
