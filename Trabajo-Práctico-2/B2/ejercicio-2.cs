@@ -36,7 +36,7 @@ namespace B2
                 cadena_2 = Console.ReadLine();
 
 
-            } while (cadena_1.Length <= cadena_2.Length);
+            } while (cadena_1.Length < cadena_2.Length);
 
 
             if (cadena_1.Contains(cadena_2))
