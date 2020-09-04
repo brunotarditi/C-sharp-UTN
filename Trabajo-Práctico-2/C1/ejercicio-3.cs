@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*Cree un programa que permita ingresar por teclado dos valores enteros el primero para indicar el número de filas y 
+ * el segundo para el número de columnas. Mediante los 2 valores cree una matriz de 2 dimensiones de orden filas X columnas.
+Asigne a cada elemento de la matriz el valor X si la suma de los valores enteros ingresados es igual a la suma de la fila y 
+columna de la celda caso contrario asigne una 0. (Se considera el valor de la posición y no del índice de la tabla para el 
+cálculo, es decir la primer posición es 1 no 0)
+ */
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

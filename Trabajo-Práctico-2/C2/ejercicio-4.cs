@@ -33,8 +33,8 @@ namespace C2
                 catch (FormatException ex)
                 {
 
-                    Console.WriteLine("¡Error! " + ex.Message + " Solo deben ser números. " +
-                        "\nSe han considerado los números ingresados para la suma.\n" );
+                    Console.WriteLine("¡Error! " + ex.Message + " Solo deben ser números separados por coma. " +
+                        "\nSi se han ingresado números separados por coma, serán considerados para la suma.\n" );
                 }
                 
             }
