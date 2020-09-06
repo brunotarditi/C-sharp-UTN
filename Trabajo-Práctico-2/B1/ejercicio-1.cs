@@ -57,54 +57,35 @@ namespace B1
 
         public Fraccion sumarFraccion(Fraccion f1, Fraccion f2)
         {
-            int num1, num2, den1, den2;
-
-            num1 = f1.Numerador;
-            num2 = f2.Numerador;
-
-            den1 = f1.Denominador;
-            den2 = f2.Denominador;
-
-
-            if (den1 == den2)
+            if (f1.Denominador == f2.Denominador)
             {
-                Numerador = num1 + num2;
-                Denominador = den1;
+                Numerador = f1.Numerador + f2.Numerador;
+                Denominador = f1.Denominador;
                 return this;
             }
             else
             {
-
-                Denominador = mcm(den1, den2);
-                Numerador = (num1 * den2) + (num2 * den1);
-
+                Numerador = (f1.Numerador * f2.Denominador) + (f2.Numerador * f1.Denominador);
+                Denominador = mcm(f1.Denominador, f2.Denominador);
                 return this;
             }
-
         }
 
+              
         public Fraccion restarFraccion(Fraccion f1, Fraccion f2)
         {
-            int num1, num2, den1, den2;
 
-            num1 = f1.Numerador;
-            num2 = f2.Numerador;
-
-            den1 = f1.Denominador;
-            den2 = f2.Denominador;
-
-
-            if (den1 == den2)
+            if (f1.Denominador == f2.Denominador)
             {
-                Numerador = num1 - num2;
-                Denominador = den1;
+                Numerador = f1.Numerador - f2.Numerador;
+                Denominador = f1.Denominador;
                 return this;
             }
             else
             {
 
-                Denominador = mcm(den1, den2);
-                Numerador = (num1 * den2) - (num2 * den1);
+                Denominador = mcm(f1.Denominador, f2.Denominador);
+                Numerador = (f1.Numerador * f2.Denominador) - (f2.Numerador * f1.Denominador);
 
                 return this;
             }
@@ -112,16 +93,9 @@ namespace B1
 
         public Fraccion multiplicarFraccion(Fraccion f1, Fraccion f2)
         {
-            int num1, num2, den1, den2;
 
-            num1 = f1.Numerador;
-            num2 = f2.Numerador;
-
-            den1 = f1.Denominador;
-            den2 = f2.Denominador;
-
-            Numerador = num1 * num2;
-            Denominador = den1 * den2;
+            Numerador = f1.Numerador* f2.Numerador;
+            Denominador = f1.Denominador * f2.Denominador;
 
             return this;
         }
@@ -129,16 +103,8 @@ namespace B1
         public Fraccion dividirFraccion(Fraccion f1, Fraccion f2)
         {
 
-            int num1, num2, den1, den2;
-
-            num1 = f1.Numerador;
-            num2 = f2.Numerador;
-
-            den1 = f1.Denominador;
-            den2 = f2.Denominador;
-
-            Numerador = num1 * den2;
-            Denominador = den1 * num2;
+            Numerador = f1.Numerador * f2.Denominador;
+            Denominador = f1.Denominador * f2.Numerador;
 
             return this;
         }
@@ -169,9 +135,10 @@ namespace B1
             return a * b / mcd(a, b);
         }
 
-        public string cadenaFraccion(Fraccion s)
+        public string cadenaFraccion()
         {
-            string fraccion = s.Numerador + "/" + s.Denominador;
+            
+            string fraccion = Numerador.ToString() + "/" + Denominador.ToString();
 
             return fraccion;
 
@@ -195,9 +162,8 @@ namespace B1
                 }
                 catch (Exception e)
                 {
-
+                    
                     Console.WriteLine("El numerador no puede ser 0. " + e.Message);
-
 
                 }
             } while (f.Numerador == 0);
@@ -209,7 +175,7 @@ namespace B1
 
         public int datoDenominador(Fraccion f)
         {
-
+            
             do
             {
                 try
@@ -252,16 +218,16 @@ namespace B1
             fex.datoDenominador(f2);
 
             f3.sumarFraccion(f1, f2);
-            Console.WriteLine("La suma de fracciones es: " + f3.cadenaFraccion(f3));
+            Console.WriteLine("La suma de fracciones es: " + f3.cadenaFraccion());
 
             f3.restarFraccion(f1, f2);
-            Console.WriteLine("La resta de fracciones es: " + f3.cadenaFraccion(f3));
+            Console.WriteLine("La resta de fracciones es: " + f3.cadenaFraccion());
 
             f3.multiplicarFraccion(f1, f2);
-            Console.WriteLine("La multiplicación de fracciones es: " + f3.cadenaFraccion(f3));
+            Console.WriteLine("La multiplicación de fracciones es: " + f3.cadenaFraccion());
 
             f3.dividirFraccion(f1, f2);
-            Console.WriteLine("La división de fracciones es: " + f3.cadenaFraccion(f3));
+            Console.WriteLine("La división de fracciones es: " + f3.cadenaFraccion());
 
         }
     }
