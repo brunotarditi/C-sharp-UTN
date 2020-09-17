@@ -18,10 +18,7 @@ namespace Cliente_MySQL
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btnConectar_Click(object sender, EventArgs e)
         {
@@ -64,5 +61,7 @@ namespace Cliente_MySQL
                 conexionBD.Close();
             }
         }
+
+        
     }
 }
