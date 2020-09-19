@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cliente MySQL", "Cliente MySQL\Cliente MySQL.csproj", "{6628B954-5BAC-4125-B6DD-34EE34EEF6E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD", "CRUD\CRUD.csproj", "{CC7166C8-42AA-473E-827F-DD9E0285E31E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tablas", "Tablas\Tablas.csproj", "{F461ECEB-4436-48DA-BA68-1F63C13C749B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{6628B954-5BAC-4125-B6DD-34EE34EEF6E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6628B954-5BAC-4125-B6DD-34EE34EEF6E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6628B954-5BAC-4125-B6DD-34EE34EEF6E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC7166C8-42AA-473E-827F-DD9E0285E31E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC7166C8-42AA-473E-827F-DD9E0285E31E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC7166C8-42AA-473E-827F-DD9E0285E31E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC7166C8-42AA-473E-827F-DD9E0285E31E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F461ECEB-4436-48DA-BA68-1F63C13C749B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F461ECEB-4436-48DA-BA68-1F63C13C749B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F461ECEB-4436-48DA-BA68-1F63C13C749B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F461ECEB-4436-48DA-BA68-1F63C13C749B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
