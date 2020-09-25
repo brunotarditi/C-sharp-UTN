@@ -41,7 +41,7 @@ namespace Tablas
                     _producto.Codigo = reader[1].ToString();
                     _producto.Nombre = reader.GetString(2);
                     _producto.Descripcion = reader.GetString(3);
-                    _producto.Precio_publico = double.Parse(reader.GetString(4));
+                    _producto.Precio_publico = decimal.Parse(reader.GetString(4).Replace(".",","));
                     _producto.Existencias = int.Parse(reader.GetString(5));
                     lista.Add(_producto);
 
@@ -63,7 +63,7 @@ namespace Tablas
         {
             bool bandera = false;
             string sql = "INSERT INTO productos (codigo, nombre, descripcion, precio_publico, existencias) VALUES " +
-                "('" + datos.Codigo + "', '" + datos.Nombre + "', '" + datos.Descripcion + "', '" + datos.Precio_publico + "', '" + datos.Existencias + "')";
+                "('" + datos.Codigo + "', '" + datos.Nombre + "', '" + datos.Descripcion + "', '" + datos.Precio_publico.ToString().Replace(",",".") + "', '" + datos.Existencias + "')";
 
             try
             {
@@ -86,7 +86,7 @@ namespace Tablas
         public bool editar(Productos datos)
         {
             bool bandera = false;
-            string sql = "UPDATE productos SET codigo= '" + datos.Codigo + "', nombre= '" + datos.Nombre + "', descripcion= '" + datos.Descripcion + "', precio_publico= '" + datos.Precio_publico + "', existencias= '" + datos.Existencias + "' WHERE id= '" + datos.Id + "'";
+            string sql = "UPDATE productos SET codigo= '" + datos.Codigo + "', nombre= '" + datos.Nombre + "', descripcion= '" + datos.Descripcion + "', precio_publico= '" + datos.Precio_publico.ToString().Replace(",", ".") + "', existencias= '" + datos.Existencias + "' WHERE id= '" + datos.Id + "'";
 
             try
             {

@@ -42,7 +42,7 @@ namespace Tablas
             _producto.Codigo = txtCodigo.Text;
             _producto.Nombre = txtNombre.Text;
             _producto.Descripcion = txtDescripcion.Text;
-            _producto.Precio_publico = Convert.ToDouble(txtPrecioPublico.Text);
+            _producto.Precio_publico = Convert.ToDecimal(txtPrecioPublico.Text.Replace(".",","));
             _producto.Existencias = int.Parse(txtExistencias.Text);
 
             ControladorProductos _controlador = new ControladorProductos();
@@ -82,7 +82,7 @@ namespace Tablas
             txtCodigo.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
             txtNombre.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             txtDescripcion.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            txtPrecioPublico.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            txtPrecioPublico.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString().Replace(".", ",");
             txtExistencias.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
         }
 
