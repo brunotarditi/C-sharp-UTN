@@ -15,50 +15,60 @@ namespace Ejercicio1
 
         public List<String> consulta()
         {
-            MySqlDataReader reader = null;
-          
+            MySqlDataReader reader = null;        
             List<String> lista = new List<string>();
             string dato = null;          
-            StreamWriter write = new StreamWriter(@"D:\articulo.txt");
-            string sql = limit();
+            StreamWriter writer = new StreamWriter(@"D:\articulo.txt");           
             MySqlConnection conexionBD = base.conexion();
-            try
+            int limit = 0;
+            int registros = registrosTotales();
+            string cabecera = "id \t fechaAlta \t codigo \t denominacion \t precio \t publicado\n";
+            writer.Write(cabecera);
+            while (limit <= registros)
             {
-                    conexionBD.Open();
+                try
+                {
+                    conexionBD.Open();                                      
+                    string sql = "SELECT * FROM articulo LIMIT " + limit + ", " + 50 + "";
                     MySqlCommand comando = new MySqlCommand(sql, conexionBD);
                     reader = comando.ExecuteReader();
-                    string cabecera = "id \t fechaAlta \t codigo \t denominacion \t precio \t publicado\n";
-                    write.Write(cabecera);
 
                     while (reader.Read())
                     {
 
-                        dato += reader.GetString(0) + "\t";
-                        dato += reader.GetString(1) + "\t";
-                        dato += reader.GetString(2) + "\t";
-                        dato += reader.GetString(3) + "\t";
-                        dato += reader.GetString(4) + "\t";
-                        dato += reader.GetString(5);
+                        dato += reader.GetString(0) + "\t";                       
+                        dato += reader.GetString(1) + "\t";                       
+                        dato += reader.GetString(2) + "\t";                       
+                        dato += reader.GetString(3) + "\t";                       
+                        dato += reader.GetString(4) + "\t";                       
+                        dato += reader.GetString(5);                       
                         lista.Add(dato);
-                        write.Write(dato);
-                        write.WriteLine();
+                        writer.Write(dato);
+                        writer.WriteLine();
                         dato = "";
+                        
+                    }
+                    limit += 50;
+                    if (limit <= registros)
+                    {
+                        writer.WriteLine("------------------------------------------LOTE DE 50 CARGADO------------------------------------------");
 
                     }
+                }
 
-            }
+                catch (MySqlException ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
 
-            catch (MySqlException ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
+                }
+                finally
+                {
+                    
+                    conexionBD.Close();
 
+                }
             }
-            finally
-            {
-                write.Close();
-                conexionBD.Close();
-               
-            }
+            writer.Close();
 
             return lista;
 
@@ -90,20 +100,6 @@ namespace Ejercicio1
 
         }
 
-        public string limit()
-        {
-            string sql = "";
-            int limit = 50;
-            int registros = registrosTotales() + 50;
-            while (limit < registros)
-            {
-
-                sql = "SELECT * FROM articulo LIMIT " + limit;
-                limit += 50;
-
-            }
-
-            return sql;
-        }
+       
     }
 }
