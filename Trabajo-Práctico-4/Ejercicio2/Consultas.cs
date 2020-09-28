@@ -14,7 +14,7 @@ namespace Ejercicio2
         public void insertar()
         {
             //ABRIR PARA LEER EL ARCHIVO
-            StreamReader reader = new StreamReader(@"D:\prueba.txt");
+            StreamReader reader = new StreamReader(@"D:\articulo_copy.txt");
             //Leamos todas las lineas
             string linea = reader.ReadLine();
             //CONECTAR A LA BASE DE DATOS
@@ -31,12 +31,13 @@ namespace Ejercicio2
                 while (linea != null)
 
                 {
+                    
                     while (contador < 50)
                     {
 
                         string[] arr = linea.Split('\t');
-
                         
+
                         for (int i = 0; i < arr.Length; i = i + 6)
 
                         {
@@ -64,7 +65,7 @@ namespace Ejercicio2
                                 }
                                 catch (MySqlException e)
                                 {
-                                    //transaccion.Rollback();
+                                    
                                     try
                                     {
                                         transaccion.Rollback();
@@ -82,7 +83,7 @@ namespace Ejercicio2
 
                                 }
 
-
+                                
                             }
                             else
                             {
@@ -122,21 +123,21 @@ namespace Ejercicio2
                                     " mientras se insertaban los datos.");
 
                                 }
-
+                                
                             }
 
                         }
                         linea = reader.ReadLine();
                         Console.WriteLine();
                         contador++;
+                        
                     }
 
-                    //Console.WriteLine("50 Cargados.");
+                    Console.WriteLine("50 FUERON CARGADOS."); 
                     contador = 0;
-
                 }
-                
 
+                
             }
             catch (MySqlException e)
             {
