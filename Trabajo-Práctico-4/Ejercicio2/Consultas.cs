@@ -36,7 +36,7 @@ namespace Ejercicio2
 
                         string[] arr = linea.Split('\t');
 
-                        // Console.Write(linea);
+                        
                         for (int i = 0; i < arr.Length; i = i + 6)
 
                         {
