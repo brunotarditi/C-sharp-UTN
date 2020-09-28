@@ -14,21 +14,19 @@ namespace Ejercicio2
         public void insertar()
         {
             //ABRIR PARA LEER EL ARCHIVO
-            StreamReader reader = new StreamReader(@"D:\prueba.txt");
+            StreamReader reader = new StreamReader(@"D:\articulo_copy.txt");
             //Leamos todas las lineas
             string linea = reader.ReadLine();
             //CONECTAR A LA BASE DE DATOS
             MySqlConnection conexionBd = base.conexion();
-            conexionBd.Open();
-            MySqlCommand comando = conexionBd.CreateCommand();
-            MySqlTransaction transaccion;
-            transaccion = conexionBd.BeginTransaction();
-            comando.Connection = conexionBd;
-            comando.Transaction = transaccion;
             int contador = 0;
             try
             {
-                             
+                
+                conexionBd.Open();                
+                MySqlTransaction transaccion;
+                transaccion = conexionBd.BeginTransaction();
+
                 while (contador < 50)
                 {
                     while (linea != null)
@@ -46,7 +44,7 @@ namespace Ejercicio2
                                 string sql = "UPDATE articulo_copy SET fechaAlta= @fechaAlta, codigo= @codigo, denominacion= @denominacion, precio= @precio, publicado= @publicado WHERE id= @id";
                                 try
                                 {
-                                    comando = new MySqlCommand(sql);                                   
+                                    MySqlCommand comando = new MySqlCommand(sql, conexionBd);                                   
                                     comando.Parameters.AddWithValue("@id", arr[i]);
                                     comando.Parameters.AddWithValue("@fechaAlta", Convert.ToDateTime(arr[i + 1]));
                                     comando.Parameters.AddWithValue("@codigo", arr[i + 2]);
@@ -54,26 +52,13 @@ namespace Ejercicio2
                                     comando.Parameters.AddWithValue("@precio", Convert.ToDouble(arr[i + 4]));
                                     comando.Parameters.AddWithValue("@publicado", arr[i + 5]);
                                     comando.ExecuteNonQuery();
-                                    transaccion.Commit();
                                     Console.WriteLine("Archivo actualizado.");
+                                    
                                 }
-                                catch (MySqlException e)
+                                catch (MySqlException ex)
                                 {
-
-                                    try
-                                    {
-                                        transaccion.Rollback();
-                                    }
-                                    catch (MySqlException ex)
-                                    {
-                                        if (transaccion.Connection != null)
-                                        {
-                                            Console.WriteLine("Exception de tipo " + ex.GetType() +
-                                            " al ejecutar el roll back de la transaction.");
-                                        }
-                                    }
-                                    Console.WriteLine("Exception de tipo " + e.GetType() +
-                                    " mientras se insertaban los datos.");
+                                    Console.WriteLine("Error: " + ex.Message);
+                             
                                 }
                             }
                             else
@@ -81,7 +66,8 @@ namespace Ejercicio2
                                 string sql = "INSERT INTO articulo_copy VALUES (@id, @fechaAlta, @codigo, @denominacion, @precio, @publicado)";
                                 try
                                 {
-                                    comando = new MySqlCommand(sql);
+                                    MySqlCommand comando = new MySqlCommand(sql, conexionBd);
+                                    comando.Transaction = transaccion;
                                     comando.Parameters.AddWithValue("@id", arr[i]);
                                     comando.Parameters.AddWithValue("@fechaAlta", Convert.ToDateTime(arr[i + 1]));
                                     comando.Parameters.AddWithValue("@codigo", arr[i + 2]);
@@ -89,8 +75,8 @@ namespace Ejercicio2
                                     comando.Parameters.AddWithValue("@precio", Convert.ToDouble(arr[i + 4]));
                                     comando.Parameters.AddWithValue("@publicado", arr[i + 5]);
                                     comando.ExecuteNonQuery();
-                                    transaccion.Commit();
                                     Console.WriteLine("Archivo insertado.");
+                                    transaccion.Commit();
                                 }
                                 catch (MySqlException e)
                                 {
@@ -111,6 +97,7 @@ namespace Ejercicio2
                                     " mientras se insertaban los datos.");
                                 }
                             }
+
                             //LEER LA SIGUIENTE LINEA DEL ARCHIVO
                             linea = reader.ReadLine();
                             Console.WriteLine();
