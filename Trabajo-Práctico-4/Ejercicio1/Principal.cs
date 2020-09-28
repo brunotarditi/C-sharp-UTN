@@ -22,12 +22,9 @@ namespace Ejercicio1
                 Thread.Sleep(1000);
                 List<String> lista = c.consulta();
                 Console.WriteLine("Articulo.txt cargado.");
-            }
-            
+            }            
 
-        }
-
-        
+        }   
 
     }
 }

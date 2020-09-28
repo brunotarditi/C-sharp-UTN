@@ -18,7 +18,7 @@ namespace Ejercicio1
             MySqlDataReader reader = null;        
             List<String> lista = new List<string>();
             string dato = null;          
-            StreamWriter writer = new StreamWriter(@"D:\articulo.txt");           
+            StreamWriter writer = new StreamWriter(@"D:\articulo_copy.txt");           
             MySqlConnection conexionBD = base.conexion();
             int limit = 0;
             int registros = registrosTotales();
