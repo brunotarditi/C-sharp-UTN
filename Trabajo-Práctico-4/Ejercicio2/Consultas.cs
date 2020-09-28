@@ -19,71 +19,109 @@ namespace Ejercicio2
             string linea = reader.ReadLine();
             //CONECTAR A LA BASE DE DATOS
             MySqlConnection conexionBd = base.conexion();
-
+            conexionBd.Open();
+            MySqlCommand comando = conexionBd.CreateCommand();
+            MySqlTransaction transaccion;
+            transaccion = conexionBd.BeginTransaction();
+            comando.Connection = conexionBd;
+            comando.Transaction = transaccion;
+            int contador = 0;
             try
-            {    
-                //ABRIR CONEXION
-                conexionBd.Open();
-                
-                while (linea != null)
+            {
+                             
+                while (contador < 50)
                 {
-                    string[] arr = linea.Split('\t');
+                    while (linea != null)
 
-                    // Console.Write(linea);
-                    for (int i = 0; i < arr.Length; i = i + 6)
-                    {
-                        int id = Convert.ToInt32(arr[i]);
-                        if (existeArticulo(id))
+                    { 
+                        string[] arr = linea.Split('\t');
+                  
+                        // Console.Write(linea);
+                        for (int i = 0; i < arr.Length; i = i + 6)
+
                         {
-                            string sql = "UPDATE articulo_copy SET fechaAlta= @fechaAlta, codigo= @codigo, denominacion= @denominacion, precio= @precio, publicado= @publicado WHERE id= @id";
-                            try
+                            int id = Convert.ToInt32(arr[i]);
+                            if (existeArticulo(id))
                             {
-                                MySqlCommand comando = new MySqlCommand(sql, conexionBd);
-                                comando.Parameters.AddWithValue("@id", arr[i]);
-                                comando.Parameters.AddWithValue("@fechaAlta", Convert.ToDateTime(arr[i + 1]));
-                                comando.Parameters.AddWithValue("@codigo", arr[i + 2]);
-                                comando.Parameters.AddWithValue("@denominacion", arr[i + 3]);
-                                comando.Parameters.AddWithValue("@precio", Convert.ToDouble(arr[i + 4]));
-                                comando.Parameters.AddWithValue("@publicado", arr[i + 5]);
-                                comando.ExecuteNonQuery();
-                                Console.WriteLine("Archivo actualizado.");
-                            }
-                            catch (MySqlException ex)
-                            {
+                                string sql = "UPDATE articulo_copy SET fechaAlta= @fechaAlta, codigo= @codigo, denominacion= @denominacion, precio= @precio, publicado= @publicado WHERE id= @id";
+                                try
+                                {
+                                    comando = new MySqlCommand(sql);                                   
+                                    comando.Parameters.AddWithValue("@id", arr[i]);
+                                    comando.Parameters.AddWithValue("@fechaAlta", Convert.ToDateTime(arr[i + 1]));
+                                    comando.Parameters.AddWithValue("@codigo", arr[i + 2]);
+                                    comando.Parameters.AddWithValue("@denominacion", arr[i + 3]);
+                                    comando.Parameters.AddWithValue("@precio", Convert.ToDouble(arr[i + 4]));
+                                    comando.Parameters.AddWithValue("@publicado", arr[i + 5]);
+                                    comando.ExecuteNonQuery();
+                                    transaccion.Commit();
+                                    Console.WriteLine("Archivo actualizado.");
+                                }
+                                catch (MySqlException e)
+                                {
 
-                                Console.WriteLine("Error: " + ex.Message);
+                                    try
+                                    {
+                                        transaccion.Rollback();
+                                    }
+                                    catch (MySqlException ex)
+                                    {
+                                        if (transaccion.Connection != null)
+                                        {
+                                            Console.WriteLine("Exception de tipo " + ex.GetType() +
+                                            " al ejecutar el roll back de la transaction.");
+                                        }
+                                    }
+                                    Console.WriteLine("Exception de tipo " + e.GetType() +
+                                    " mientras se insertaban los datos.");
+                                }
                             }
+                            else
+                            {
+                                string sql = "INSERT INTO articulo_copy VALUES (@id, @fechaAlta, @codigo, @denominacion, @precio, @publicado)";
+                                try
+                                {
+                                    comando = new MySqlCommand(sql);
+                                    comando.Parameters.AddWithValue("@id", arr[i]);
+                                    comando.Parameters.AddWithValue("@fechaAlta", Convert.ToDateTime(arr[i + 1]));
+                                    comando.Parameters.AddWithValue("@codigo", arr[i + 2]);
+                                    comando.Parameters.AddWithValue("@denominacion", arr[i + 3]);
+                                    comando.Parameters.AddWithValue("@precio", Convert.ToDouble(arr[i + 4]));
+                                    comando.Parameters.AddWithValue("@publicado", arr[i + 5]);
+                                    comando.ExecuteNonQuery();
+                                    transaccion.Commit();
+                                    Console.WriteLine("Archivo insertado.");
+                                }
+                                catch (MySqlException e)
+                                {
+
+                                    try
+                                    {
+                                        transaccion.Rollback();
+                                    }
+                                    catch (MySqlException ex)
+                                    {
+                                        if (transaccion.Connection != null)
+                                        {
+                                            Console.WriteLine("Exception de tipo " + ex.GetType() +
+                                            " al ejecutar el roll back de la transaction.");
+                                        }
+                                    }
+                                    Console.WriteLine("Exception de tipo " + e.GetType() +
+                                    " mientras se insertaban los datos.");
+                                }
+                            }
+                            //LEER LA SIGUIENTE LINEA DEL ARCHIVO
+                            linea = reader.ReadLine();
+                            Console.WriteLine();
+                            contador++;
+
                         }
-                        else
-                        {
-                            string sql = "INSERT INTO articulo_copy VALUES (@id, @fechaAlta, @codigo, @denominacion, @precio, @publicado)";
-                            try
-                            {
-                                MySqlCommand comando = new MySqlCommand(sql, conexionBd);
-                                comando.Parameters.AddWithValue("@id", arr[i]);
-                                comando.Parameters.AddWithValue("@fechaAlta", Convert.ToDateTime(arr[i + 1]));
-                                comando.Parameters.AddWithValue("@codigo", arr[i + 2]);
-                                comando.Parameters.AddWithValue("@denominacion", arr[i + 3]);
-                                comando.Parameters.AddWithValue("@precio", Convert.ToDouble(arr[i + 4]));
-                                comando.Parameters.AddWithValue("@publicado", arr[i + 5]);
-                                comando.ExecuteNonQuery();
-                                Console.WriteLine("Archivo insertado.");
-                            }
-                            catch (MySqlException ex)
-                            {
+                    }
+                                      
+                }               
 
-                                Console.WriteLine("Error: " + ex.Message);
-                            }
-                        }
-
-                        linea = reader.ReadLine();
-                        Console.WriteLine();
-
-                    }  
-                }
-                //CERRAR LECTURA DE ARCHIVO
-                reader.Close();
-
+                contador = 0;
             }
             catch (MySqlException ex)
             {
@@ -92,6 +130,8 @@ namespace Ejercicio2
             }
             finally
             {
+                //CERRAR LA LECTURA DEL ARCHIVO
+                reader.Close();
                 //CERRAR CONEXION
                 conexionBd.Close();
             }
@@ -106,7 +146,7 @@ namespace Ejercicio2
             MySqlCommand comando = new MySqlCommand(sql, conexionBd);
             int num = Convert.ToInt32(comando.ExecuteScalar());
 
-            if(num > 0)
+            if (num > 0)
             {
                 return true;
             }
