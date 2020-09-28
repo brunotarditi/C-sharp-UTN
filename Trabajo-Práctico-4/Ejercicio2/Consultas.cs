@@ -14,25 +14,26 @@ namespace Ejercicio2
         public void insertar()
         {
             //ABRIR PARA LEER EL ARCHIVO
-            StreamReader reader = new StreamReader(@"D:\articulo_copy.txt");
+            StreamReader reader = new StreamReader(@"D:\prueba.txt");
             //Leamos todas las lineas
             string linea = reader.ReadLine();
             //CONECTAR A LA BASE DE DATOS
             MySqlConnection conexionBd = base.conexion();
-            
-            
+
+
             int contador = 0;
 
             try
             {
                 conexionBd.Open();
-                while (contador < 50)
+
+
+                while (linea != null)
+
                 {
-
-                    while (linea != null)
-
+                    while (contador < 50)
                     {
-                       
+
                         string[] arr = linea.Split('\t');
 
                         // Console.Write(linea);
@@ -47,7 +48,7 @@ namespace Ejercicio2
                                 MySqlTransaction transaccion = conexionBd.BeginTransaction();
                                 try
                                 {
-                                  
+
                                     MySqlCommand comando = new MySqlCommand(sql, conexionBd);
                                     comando.Transaction = transaccion;
                                     comando.Parameters.AddWithValue("@id", arr[i]);
@@ -78,7 +79,7 @@ namespace Ejercicio2
                                     }
                                     Console.WriteLine("Exception de tipo " + e.GetType() +
                                     " mientras se insertaban los datos.");
-                                    
+
                                 }
 
 
@@ -89,8 +90,8 @@ namespace Ejercicio2
                                 MySqlTransaction transaccion = conexionBd.BeginTransaction();
                                 try
                                 {
-                                    
-                                    MySqlCommand comando = new MySqlCommand(sql, conexionBd);                                   
+
+                                    MySqlCommand comando = new MySqlCommand(sql, conexionBd);
                                     comando.Transaction = transaccion;
                                     comando.Parameters.AddWithValue("@id", arr[i]);
                                     comando.Parameters.AddWithValue("@fechaAlta", Convert.ToDateTime(arr[i + 1]));
@@ -119,26 +120,28 @@ namespace Ejercicio2
                                     }
                                     Console.WriteLine("Exception de tipo " + e.GetType() +
                                     " mientras se insertaban los datos.");
-                                    
+
                                 }
 
                             }
-                            
-                        }
 
+                        }
                         linea = reader.ReadLine();
                         Console.WriteLine();
+                        contador++;
                     }
 
-                    contador++;
-                }
+                    //Console.WriteLine("50 Cargados.");
+                    contador = 0;
 
-                contador = 0;
+                }
+                
+
             }
             catch (MySqlException e)
             {
                 Console.WriteLine(e.Message);
-                
+
             }
             finally
             {
