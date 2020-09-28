@@ -15,41 +15,43 @@ namespace Ejercicio2
         {
             //ABRIR PARA LEER EL ARCHIVO
             StreamReader reader = new StreamReader(@"D:\articulo_copy.txt");
-            //Leamos todas las lineas
+            //Leer hasta salto de línea
             string linea = reader.ReadLine();
             //CONECTAR A LA BASE DE DATOS
             MySqlConnection conexionBd = base.conexion();
 
-
+            //Este contador sirve como condición de hasta cuantas lineas cargar
             int contador = 0;
 
             try
             {
+                //se abre la conexion
                 conexionBd.Open();
 
-
+                //Mientras la linea sea distinta a null entra al bucle
                 while (linea != null)
 
                 {
-                    
+                    //Mientras el contador sea menor a 50 entra al bucle
                     while (contador < 50)
                     {
-
+                        //Splitea la tabulación de la linea
                         string[] arr = linea.Split('\t');
                         
-
+                        //Recorremos la linea
                         for (int i = 0; i < arr.Length; i = i + 6)
 
                         {
+                            //Se almacena la primera posición del arreglo que es el id en un entero
                             int id = Convert.ToInt32(arr[i]);
-                            if (existeArticulo(id))
+                            if (existeArticulo(id))//Corresponde a la validación del método
                             {
-
+                                //Query
                                 string sql = "UPDATE articulo_copy SET fechaAlta= @fechaAlta, codigo= @codigo, denominacion= @denominacion, precio= @precio, publicado= @publicado WHERE id= @id";
                                 MySqlTransaction transaccion = conexionBd.BeginTransaction();
                                 try
                                 {
-
+                                    //Se crea el comando y se le pasa la conexion y la query
                                     MySqlCommand comando = new MySqlCommand(sql, conexionBd);
                                     comando.Transaction = transaccion;
                                     comando.Parameters.AddWithValue("@id", arr[i]);
@@ -86,12 +88,12 @@ namespace Ejercicio2
                                 
                             }
                             else
-                            {
+                            {   //Query
                                 string sql = "INSERT INTO articulo_copy VALUES (@id, @fechaAlta, @codigo, @denominacion, @precio, @publicado)";
                                 MySqlTransaction transaccion = conexionBd.BeginTransaction();
                                 try
                                 {
-
+                                    //Se crea el comando y se le pasa la conexion y la query
                                     MySqlCommand comando = new MySqlCommand(sql, conexionBd);
                                     comando.Transaction = transaccion;
                                     comando.Parameters.AddWithValue("@id", arr[i]);
@@ -127,14 +129,15 @@ namespace Ejercicio2
                             }
 
                         }
+                        //Leer siguiente linea hasta el salto
                         linea = reader.ReadLine();
                         Console.WriteLine();
-                        contador++;
+                        contador++; //contador aumenta en 1
                         
                     }
 
                     Console.WriteLine("50 FUERON CARGADOS."); 
-                    contador = 0;
+                    contador = 0; //Reinicia el contador
                 }
 
                 
@@ -154,12 +157,13 @@ namespace Ejercicio2
 
         }
 
-        private bool existeArticulo(int id)
+        private bool existeArticulo(int id) //Este método retorna una condición booleana en caso de existir o no un articulo
         {
+            //Se crea una conexión
             MySqlConnection conexionBd = base.conexion();
-            conexionBd.Open();
-            string sql = "SELECT id FROM articulo_copy WHERE id='" + id + "'";
-            MySqlCommand comando = new MySqlCommand(sql, conexionBd);
+            conexionBd.Open(); //Se abre la conexión
+            string sql = "SELECT id FROM articulo_copy WHERE id='" + id + "'"; //query → Seleccionar id de articulo_copy donde id sea id referido
+            MySqlCommand comando = new MySqlCommand(sql, conexionBd); 
             int num = Convert.ToInt32(comando.ExecuteScalar());
 
             if (num > 0)

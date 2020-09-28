@@ -15,27 +15,37 @@ namespace Ejercicio1
 
         public List<String> consulta()
         {
+            
             MySqlDataReader reader = null;        
             List<String> lista = new List<string>();
             string dato = null;          
-            StreamWriter writer = new StreamWriter(@"D:\articulo_copy.txt");           
+            //Se crea el StreamWriter para crear un archivo txt
+            StreamWriter writer = new StreamWriter(@"D:\articulo_copy.txt");
+            //Se realiza la conexión a la base de datos
             MySqlConnection conexionBD = base.conexion();
+            //La variable entera limit sera la encargada de aumentar en 50 la escritura
             int limit = 0;
-            int registros = registrosTotales();
+            int registros = registrosTotales(); //Metodo para saber la cantidad de registros de la base de datos
+            //Esta cadena de texto pinta una línea en el txt con el siguiente contenido
             string cabecera = "id \t fechaAlta \t codigo \t denominacion \t precio \t publicado\n";
             writer.Write(cabecera);
+            //Mientras el limit sea menor a la cantidad de registros entra
             while (limit <= registros)
             {
                 try
                 {
-                    conexionBD.Open();                                      
+                    //Se abre la conexión
+                    conexionBD.Open();
+                    //Query → Selecciona todo de articulo con un limit de 50 en 50 y solo mostrando 50 registros
                     string sql = "SELECT * FROM articulo LIMIT " + limit + ", " + 50 + "";
+                    //Se crea el comando al que se le pasa la query y la conexión
                     MySqlCommand comando = new MySqlCommand(sql, conexionBD);
+                    //Con reader se leen los registros de la base de datos
                     reader = comando.ExecuteReader();
-
+                    
                     while (reader.Read())
                     {
-
+                        
                         dato += reader.GetString(0) + "\t";                       
                         dato += reader.GetString(1) + "\t";                       
                         dato += reader.GetString(2) + "\t";                       
