@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
+//d- Leer el XML mediante XMLTextReader.
+
 namespace Ejercicio_D
 {
     class XMLTextReaderFile
