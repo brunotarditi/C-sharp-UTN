@@ -38,7 +38,6 @@ namespace Ejercicio_C
 
                 XmlNodeList empleados = xDoc.GetElementsByTagName("empleados");
                 XmlNodeList listado = xDoc.GetElementsByTagName("listado");
-                XmlNodeList subsectores = xDoc.GetElementsByTagName("subsectores");
                 XmlNodeList listaEmpleado = ((XmlElement)listado[0]).GetElementsByTagName("empleado");
                 XmlNodeList listaSubsectores = ((XmlElement)empleados[0]).GetElementsByTagName("subsectores");
                 XmlNodeList listaTotalCupoAsignadoSector = ((XmlElement)empleados[0]).GetElementsByTagName("totalCupoAsignadoSector");
@@ -54,14 +53,14 @@ namespace Ejercicio_C
                     XmlNodeList _id = nodo.GetElementsByTagName("id");
                     XmlNodeList _nombre = nodo.GetElementsByTagName("nombreCompleto");
                     XmlNodeList _cuil = nodo.GetElementsByTagName("cuil");
-                    XmlNodeList sector = nodo.GetElementsByTagName("sector");
+                    XmlNodeList _sector = nodo.GetElementsByTagName("sector");
 
                     String aux = "";
-                    String denominacion = ((XmlElement)sector[0]).GetAttribute("denominacion");
-                    String idS = ((XmlElement)sector[0]).GetAttribute("dd");
-                    String valorSemaforo = ((XmlElement)sector[0]).GetAttribute("valorSemaforo");
-                    String colorSemaforo = ((XmlElement)sector[0]).GetAttribute("colorSemaforo");
-                    aux += "Denominación: " + denominacion + " Id: " + idS + " Valor Semáforo: " + valorSemaforo + " Color Semáforo: " + colorSemaforo;
+                    String denominacion = ((XmlElement)_sector[0]).GetAttribute("denominacion");
+                    String id = ((XmlElement)_sector[0]).GetAttribute("dd");
+                    String valorSemaforo = ((XmlElement)_sector[0]).GetAttribute("valorSemaforo");
+                    String colorSemaforo = ((XmlElement)_sector[0]).GetAttribute("colorSemaforo");
+                    aux += "Denominación: " + denominacion + " Id: " + id + " Valor Semáforo: " + valorSemaforo + " Color Semáforo: " + colorSemaforo;
                     
                     XmlNodeList _cupoAsignado = nodo.GetElementsByTagName("cupoAsignado");
                     XmlNodeList _cupoConsumido = nodo.GetElementsByTagName("cupoConsumido");
