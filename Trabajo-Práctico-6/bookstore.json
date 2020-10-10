@@ -1,0 +1,138 @@
+[
+  {
+    "Id": 1,
+    "Nombre": "Gabriel",
+    "Apellido": "García Marquéz",
+    "Dni": 14665832,
+    "Libros": [
+      {
+        "Nombre": "Crónica de una muerte anunciada",
+        "AñoPublicacion": 1981,
+        "Editorial": "Debolsillo"
+      },
+      {
+        "Nombre": "100 años de soledad",
+        "AñoPublicacion": 1982,
+        "Editorial": "Debolsillo"
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Nombre": "Stephen",
+    "Apellido": "King",
+    "Dni": 19654321,
+    "Libros": [
+      {
+        "Nombre": "El resplandor",
+        "AñoPublicacion": 1977,
+        "Editorial": "Debolsillo"
+      },
+      {
+        "Nombre": "It",
+        "AñoPublicacion": 1986,
+        "Editorial": "Debolsillo"
+      },
+      {
+        "Nombre": "Carrie",
+        "AñoPublicacion": 1974,
+        "Editorial": "Pomaire"
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Nombre": "Jorge Luis",
+    "Apellido": "Borges",
+    "Dni": 8654321,
+    "Libros": [
+      {
+        "Nombre": "Ficciones",
+        "AñoPublicacion": 1944,
+        "Editorial": "Emecé Editores"
+      },
+      {
+        "Nombre": "El Aleph",
+        "AñoPublicacion": 1949,
+        "Editorial": "Losada"
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Nombre": "William",
+    "Apellido": "Shakespeare",
+    "Dni": 3258327,
+    "Libros": [
+      {
+        "Nombre": "Hamlet",
+        "AñoPublicacion": 1603,
+        "Editorial": "Alianza Editorial"
+      },
+      {
+        "Nombre": "Otelo",
+        "AñoPublicacion": 1622,
+        "Editorial": "Austral"
+      },
+      {
+        "Nombre": "Romeo y Julieta",
+        "AñoPublicacion": 1597,
+        "Editorial": "Austral"
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Nombre": "Oscar ",
+    "Apellido": "Wilde",
+    "Dni": 6951357,
+    "Libros": [
+      {
+        "Nombre": "El fantasma de Canterville",
+        "AñoPublicacion": 1887,
+        "Editorial": "Cantaro"
+      },
+      {
+        "Nombre": "El retrato de Dorian Gray",
+        "AñoPublicacion": 1890,
+        "Editorial": "Planeta"
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "Nombre": "Agatha ",
+    "Apellido": "Christie",
+    "Dni": 2698327,
+    "Libros": [
+      {
+        "Nombre": "Asesinato en el Orient Express",
+        "AñoPublicacion": 1934,
+        "Editorial": "Planeta"
+      },
+      {
+        "Nombre": "Muerte en el Nilo",
+        "AñoPublicacion": 1938,
+        "Editorial": "Espasa"
+      },
+      {
+        "Nombre": "Diez negritos",
+        "AñoPublicacion": 1939,
+        "Editorial": "Espasa"
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "Nombre": "Federico ",
+    "Apellido": "García Lorca",
+    "Dni": 13556997,
+    "Libros": [
+      {
+        "Nombre": "Romancero gitano",
+        "AñoPublicacion": 1928,
+        "Editorial": "Akal"
+      }
+    ]
+  }
+]
