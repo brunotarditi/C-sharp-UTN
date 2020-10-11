@@ -18,7 +18,7 @@ namespace Ejercicio_1
             string path = @"D:\Documentos\Programación UTN\3.Lab de computación 3\C-sharp-UTN\Trabajo-Práctico-6\bookstore.json";
            
             EscribirJsonFile(c.selectEscritor(), path);
-
+            Console.WriteLine("Archivo JSON creado.");
 
         }
 

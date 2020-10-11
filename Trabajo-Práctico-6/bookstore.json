@@ -14,6 +14,11 @@
         "Nombre": "100 años de soledad",
         "AñoPublicacion": 1982,
         "Editorial": "Debolsillo"
+      },
+      {
+        "Nombre": "El amor en los tiempos del cólera",
+        "AñoPublicacion": 1985,
+        "Editorial": "Debolsillo"
       }
     ]
   },
@@ -132,6 +137,29 @@
         "Nombre": "Romancero gitano",
         "AñoPublicacion": 1928,
         "Editorial": "Akal"
+      },
+      {
+        "Nombre": "Poeta en New York",
+        "AñoPublicacion": 1940,
+        "Editorial": "Séneca"
+      }
+    ]
+  },
+  {
+    "Id": 8,
+    "Nombre": "Julio",
+    "Apellido": "Cortázar",
+    "Dni": 17223841,
+    "Libros": [
+      {
+        "Nombre": "Rayuela",
+        "AñoPublicacion": 1963,
+        "Editorial": "Pantheon Books"
+      },
+      {
+        "Nombre": "Los Reyes",
+        "AñoPublicacion": 1949,
+        "Editorial": "Alfaguara"
       }
     ]
   }
