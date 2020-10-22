@@ -38,7 +38,7 @@
             <asp:TableRow>
                 <asp:TableCell>Imagen</asp:TableCell>
                 <asp:TableCell>
-                    <asp:Image ImageUrl="https://i.pinimg.com/originals/54/4b/4f/544b4fc1c4cd77c4157521b90a5a37d7.jpg" Width="200" Height="150" ID="img" runat="server" />
+                    <asp:Image ImageUrl="https://i.pinimg.com/originals/54/4b/4f/544b4fc1c4cd77c4157521b90a5a37d7.jpg" ImageAlign="Middle" Width="200" Height="150" ID="img" runat="server" />
                 </asp:TableCell>
             </asp:TableRow>
             <%-- FILA CHECKBOX ASP --%>
@@ -81,41 +81,41 @@
                 <asp:TableCell>Boton</asp:TableCell>
                 <asp:TableCell><asp:Button runat="server" Text="Button" OnClick="DatosIngresadosASP"/></asp:TableCell>
             </asp:TableRow>
-
+            <%--- FILA DATOS INGRESADOS ASP--%>
             <asp:TableRow>
                 <asp:TableCell ColumnSpan="2" Font-Bold="true">Datos Ingresados:</asp:TableCell>
             </asp:TableRow>
-
+            <%--- FILA DATOS INGRESADOS DE CAJA DE TEXTO ASP--%>
             <asp:TableRow>
                 <asp:TableCell Font-Bold="true">Caja de Texto:</asp:TableCell>
                 <asp:TableCell runat="server" ID="caja"></asp:TableCell>
             </asp:TableRow>
-
+            <%--- FILA DATOS INGRESADOS DE COMBO ASP--%>
             <asp:TableRow>
                 <asp:TableCell Font-Bold="true">Combo:</asp:TableCell>
                 <asp:TableCell runat="server" ID="cbo"></asp:TableCell>
             </asp:TableRow>
-
+            <%--- FILA DATOS INGRESADOS DE IMAGEN ASP--%>
             <asp:TableRow>
                 <asp:TableCell Font-Bold="true">Imagen:</asp:TableCell>
                 <asp:TableCell runat="server" ID="imagen"></asp:TableCell>
             </asp:TableRow>
-
+            <%--- FILA DATOS INGRESADOS DE CHECKBOX ASP--%>
             <asp:TableRow>
                 <asp:TableCell Font-Bold="true">CheckBox:</asp:TableCell>
                 <asp:TableCell runat="server" ID="cbox"></asp:TableCell>
             </asp:TableRow>
-
+            <%--- FILA DATOS INGRESADOS DE HIPERVINCULO ASP--%>
             <asp:TableRow>
                 <asp:TableCell Font-Bold="true">Hipervinculo:</asp:TableCell>
                 <asp:TableCell runat="server" ID="hyp"></asp:TableCell>
             </asp:TableRow>
-
+            <%--- FILA DATOS INGRESADOS DE RADIO BUTTON ASP--%>
             <asp:TableRow>
                 <asp:TableCell Font-Bold="true">Radio Button:</asp:TableCell>
                 <asp:TableCell runat="server" ID="rbtn"></asp:TableCell>
             </asp:TableRow>
-
+            <%--- FILA DATOS INGRESADOS DE CAMPO OCULTO ASP--%>
             <asp:TableRow>
                 <asp:TableCell Font-Bold="true">Campo Oculto:</asp:TableCell>
                 <asp:TableCell runat="server" ID="campo"></asp:TableCell>
