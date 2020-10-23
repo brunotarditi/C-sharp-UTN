@@ -16,25 +16,41 @@
                 <div class="form-group">
                     <br />
                     <asp:Label runat="server" Font-Bold="true">Nombre</asp:Label>
+                    <asp:RequiredFieldValidator runat="server" ID="rfvName" ForeColor="Red" InitialValue=" " ControlToValidate="firstname" ErrorMessage="(*) Nombre" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator runat="server" ID="rfvLast" ForeColor="Red" InitialValue=" " ControlToValidate="lastname" ErrorMessage="(*) Apellido" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z]*$" ControlToValidate="firstname" ID="revName" ErrorMessage="(*) Solo deben ser letras" Text="*"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator runat="server" ForeColor="Red" ValidationExpression="^[a-zA-Z]*$" ControlToValidate="lastname" ID="revLast" ErrorMessage="(*) Solo deben ser letras" Text="*"></asp:RegularExpressionValidator>
                     <div class="input-group">
-                        <asp:TextBox CssClass="form-control" placeholder="Nombre" runat="server" ID="firstname" TextMode="SingleLine"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" MaxLength="20" placeholder="Nombre" runat="server" ID="firstname" TextMode="SingleLine"></asp:TextBox>
                         &nbsp&nbsp&nbsp&nbsp
-                        <asp:TextBox CssClass="form-control" placeholder="Apellido" runat="server" ID="lastname" TextMode="SingleLine"></asp:TextBox>
+                        <asp:TextBox CssClass="form-control" MaxLength="20" placeholder="Apellido" runat="server" ID="lastname" TextMode="SingleLine"></asp:TextBox>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <asp:Label runat="server" Font-Bold="true">Usuario</asp:Label>
+                    <asp:RequiredFieldValidator runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="email" ErrorMessage="(*) Usuario" Text="*"></asp:RequiredFieldValidator>
                     <asp:TextBox placeholder="@gmail.com" runat="server" ID="email" TextMode="SingleLine" CssClass="form-control"></asp:TextBox>
                 </div>
 
                 <div class="form-group">
                     <asp:Label runat="server" Font-Bold="true">Contraseña</asp:Label>
+                    <asp:RequiredFieldValidator runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="password" ErrorMessage="(*) Contraseña" Text="*"></asp:RequiredFieldValidator>
                     <asp:TextBox runat="server" ID="password" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                </div>
+
+                 <div class="form-group">
+                    <asp:Label runat="server" Font-Bold="true">Confirma tu contraseña</asp:Label>
+                    <asp:CompareValidator runat="server" ForeColor="Red" ControlToValidate="password" Operator="Equal" ControlToCompare="passwordConfirm" ErrorMessage="(*) Debe confirmar la contraseña" Text="*"></asp:CompareValidator>
+                    <asp:TextBox runat="server" ID="passwordConfirm" TextMode="Password" CssClass="form-control"></asp:TextBox>
                 </div>
 
                 <div class="form-group">
                     <asp:Label runat="server" Font-Bold="true">Fecha de nacimiento</asp:Label>
+                    <asp:RequiredFieldValidator runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="day" ErrorMessage="(*) Día" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="month" ErrorMessage="(*) Mes" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="year" ErrorMessage="(*) Año" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RangeValidator runat="server" ForeColor="Red" Type="Integer" ControlToValidate="year" MinimumValue="1930" MaximumValue="2020" ErrorMessage="(*) El año debe estar entre 1930 y el año actual" Text="*"></asp:RangeValidator>
                     <div class="input-group">
                         <asp:TextBox runat="server" ID="day" TextMode="SingleLine" CssClass="form-control" placeholder="Día"></asp:TextBox>
                         &nbsp&nbsp
@@ -60,6 +76,7 @@
 
                 <div class="form-group">
                     <asp:Label runat="server" Font-Bold="true">Sexo</asp:Label>
+                    <asp:RequiredFieldValidator runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="sex" ErrorMessage="(*) Sexo" Text="*"></asp:RequiredFieldValidator>                   
                     <asp:DropDownList runat="server" ID="sex" CssClass="form-control">
                         <asp:ListItem Text="Selecciona tu sexo" Value=""></asp:ListItem>
                         <asp:ListItem Text="Masculino" Value="male"></asp:ListItem>
@@ -69,16 +86,29 @@
 
                 <div class="form-group">
                     <asp:Label runat="server" Font-Bold="true">Teléfono movil</asp:Label>
+                    <asp:RequiredFieldValidator runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="phone" ErrorMessage="(*) Teléfono" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator runat="server" ForeColor="Red" ValidationExpression="^\d+$" ControlToValidate="phone" ID="validaTel" ErrorMessage="(*) Solo deben ser números" Text="*"></asp:RegularExpressionValidator>
                     <asp:TextBox runat="server" ID="phone" TextMode="SingleLine" CssClass="form-control" placeholder="+54"></asp:TextBox>
                 </div>
 
                 <div class="form-group">
                     <asp:Label runat="server" Font-Bold="true">Dirección de correo alternativa</asp:Label>
+                    <asp:CompareValidator runat="server" ForeColor="Red" ControlToValidate="password" Operator="Equal" ControlToCompare="passwordConfirm" ErrorMessage="(*) Debe confirmar la contraseña" Text="*"></asp:CompareValidator>
+                    <asp:RequiredFieldValidator runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="emailAlternative" ErrorMessage="(*) Correo alternativo" Text="*"></asp:RequiredFieldValidator>
                     <asp:TextBox runat="server" ID="emailAlternative" TextMode="SingleLine" CssClass="form-control"></asp:TextBox>
                 </div>
 
                 <div class="form-group">
+                    <asp:Label runat="server" Font-Bold="true">Demuéstrenos que no eres un robot</asp:Label>
+                    <asp:CompareValidator runat="server" ForeColor="Red" ControlToValidate="captcha" Operator="Equal" ValueToCompare="arch dsjcbka"  ErrorMessage="(*) Debes demostrar que no eres un robot" Text="*"></asp:CompareValidator>
+                    <asp:Image runat="server" ImageUrl="~/captcha.png" ID="img" Width="410"/>
+                    <asp:Label runat="server">Escribe las dos palabras: </asp:Label>
+                    <asp:TextBox runat="server" ID="captcha" TextMode="SingleLine" CssClass="form-control"></asp:TextBox>
+                </div>
+
+                <div class="form-group">
                     <asp:Label runat="server" Font-Bold="true">Ubicación</asp:Label>
+                    <asp:RequiredFieldValidator runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="country" ErrorMessage="(*) Ubicación" Text="*"></asp:RequiredFieldValidator>
                     <asp:DropDownList runat="server" ID="country" CssClass="form-control">
                         <asp:ListItem Text="Argentina" Value="argentina"></asp:ListItem>
                         <asp:ListItem Text="Brasil" Value="brasil"></asp:ListItem>
@@ -96,13 +126,18 @@
 
                 <div class="form-group">
 
-                    <asp:CheckBox runat="server" ID="terms"/>
+                    <asp:CheckBox runat="server" ID="terms" />
                     &nbsp
                     <asp:Label runat="server">Acepto las <a href="https://policies.google.com/terms?hl=es">Condiciones del servicio</a>  y la <a href="https://policies.google.com/privacy?hl=es">Política de privacidad de Google.</a></asp:Label>
                 </div>
                 <div class="justify-content-end" style="text-align: right">
-                    <asp:Button runat="server" CssClass="btn btn-primary" Text="Siguiente Paso" />
+                    <asp:Button runat="server" CssClass="btn btn-primary" Text="Siguiente Paso" OnClick="Validaciones"/>
                 </div>
+                <br />
+                <asp:ValidationSummary ID="valSum" runat="server"
+                    HeaderText="Debe ingresar un valor en los siguientes campos:"
+                    FontNames="verdana" FontSize="12" ForeColor="Red"/>
+
             </form>
         </div>
     </div>
