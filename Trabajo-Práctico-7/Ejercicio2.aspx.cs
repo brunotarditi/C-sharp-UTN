@@ -9,8 +9,12 @@ public partial class Ejercicio2 : System.Web.UI.Page
 {
     protected void Validaciones(object sender, EventArgs e)
     {
+        
 
-       
+    }
+    protected void ValidaCbx(object sender, ServerValidateEventArgs args)
+    {
+        args.IsValid = cbx.Checked;
     }
 
     

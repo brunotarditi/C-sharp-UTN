@@ -8,20 +8,20 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AplicacionWeb/tp7", "http:/
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/tp7"
-		Debug.AspNetCompiler.PhysicalPath = "D:\Documentos\Programación UTN\3.Lab de computación 3\C-sharp-UTN\Trabajo-Práctico-7\"
+		Debug.AspNetCompiler.PhysicalPath = "..\Trabajo-Práctico-7\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\tp7\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/tp7"
-		Release.AspNetCompiler.PhysicalPath = "D:\Documentos\Programación UTN\3.Lab de computación 3\C-sharp-UTN\Trabajo-Práctico-7\"
+		Release.AspNetCompiler.PhysicalPath = "..\Trabajo-Práctico-7\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\tp7\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "D:\Documentos\Programación UTN\3.Lab de computación 3\C-sharp-UTN\Trabajo-Práctico-7\"
+		SlnRelativePath = "..\Trabajo-Práctico-7\"
 	EndProjectSection
 EndProject
 Global
