@@ -6,6 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Formulario</title>
+    <!--BOOTSTRAP-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     <script></script>
 </head>
@@ -29,15 +30,15 @@
 
                 <div class="form-group">
                     <asp:Label runat="server" Font-Bold="true">Usuario</asp:Label>
-                    <asp:RequiredFieldValidator runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="email" ErrorMessage="(*) Usuario" Text="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator runat="server" ForeColor="Red" ControlToValidate="email" ErrorMessage="(*) Email incorrecto" Text="*" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator runat="server" ID="rfvUser" ForeColor="Red" InitialValue=" " ControlToValidate="email" ErrorMessage="(*) Usuario" Text="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator runat="server" ID="revUser" ForeColor="Red" ControlToValidate="email" ErrorMessage="(*) Email incorrecto" Text="*" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" SetFocusOnError="True"></asp:RegularExpressionValidator>
                     <asp:TextBox placeholder="@gmail.com" runat="server" ID="email" TextMode="SingleLine" CssClass="form-control"></asp:TextBox>
                 </div>
 
                 <div class="form-group">
                     <asp:Label runat="server" Font-Bold="true">Contraseña</asp:Label>
-                    <asp:RequiredFieldValidator runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="password" ErrorMessage="(*) Contraseña" Text="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator runat="server" ControlToValidate="password" ValidationExpression=".*[!@#$%^&*+;:]+.*" ForeColor="Red" ErrorMessage="Debe incluir algunos de los siguientes simbolos !@#$%^&*+;:" Text="*" SetFocusOnError="True"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ForeColor="Red" InitialValue=" " ControlToValidate="password" ErrorMessage="(*) Contraseña" Text="*" SetFocusOnError="True"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator runat="server" ID="revPassword" ControlToValidate="password" ValidationExpression=".*[!@#$%^&*+;:]+.*" ForeColor="Red" ErrorMessage="Debe incluir algunos de los siguientes simbolos !@#$%^&*+;:" Text="*" SetFocusOnError="True"></asp:RegularExpressionValidator>
                     <asp:TextBox runat="server" ID="password" TextMode="Password" CssClass="form-control"></asp:TextBox>
                 </div>
 
@@ -49,10 +50,10 @@
 
                 <div class="form-group">
                     <asp:Label runat="server" Font-Bold="true">Fecha de nacimiento</asp:Label>
-                    <asp:RequiredFieldValidator runat="server" SetFocusOnError="True" ForeColor="Red" InitialValue=" " ControlToValidate="day" ErrorMessage="(*) Día" Text="*"></asp:RequiredFieldValidator>
-                    <asp:RequiredFieldValidator runat="server" SetFocusOnError="True" ForeColor="Red" InitialValue=" " ControlToValidate="month" ErrorMessage="(*) Mes" Text="*"></asp:RequiredFieldValidator>
-                    <asp:RequiredFieldValidator runat="server" SetFocusOnError="True" ForeColor="Red" InitialValue=" " ControlToValidate="year" ErrorMessage="(*) Año" Text="*"></asp:RequiredFieldValidator>
-                    <asp:RangeValidator runat="server" SetFocusOnError="True" ForeColor="Red" Type="Integer" ControlToValidate="year" MinimumValue="1930" MaximumValue="2020" ErrorMessage="(*) El año debe estar entre 1930 y el año actual" Text="*"></asp:RangeValidator>
+                    <asp:RequiredFieldValidator runat="server" ID="rfvDay" SetFocusOnError="True" ForeColor="Red" InitialValue=" " ControlToValidate="day" ErrorMessage="(*) Día" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator runat="server" ID="rfvMonth" SetFocusOnError="True" ForeColor="Red" InitialValue=" " ControlToValidate="month" ErrorMessage="(*) Mes" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator runat="server" ID="rfvYear" SetFocusOnError="True" ForeColor="Red" InitialValue=" " ControlToValidate="year" ErrorMessage="(*) Año" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RangeValidator runat="server" ID="rvYear" SetFocusOnError="True" ForeColor="Red" Type="Integer" ControlToValidate="year" MinimumValue="1930" MaximumValue="2020" ErrorMessage="(*) El año debe estar entre 1930 y el año actual" Text="*"></asp:RangeValidator>
                     <div class="input-group">
                         <asp:TextBox runat="server" ID="day" TextMode="SingleLine" CssClass="form-control" placeholder="Día"></asp:TextBox>
                         &nbsp&nbsp
@@ -78,7 +79,7 @@
 
                 <div class="form-group">
                     <asp:Label runat="server" Font-Bold="true">Sexo</asp:Label>
-                    <asp:RequiredFieldValidator SetFocusOnError="True" runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="sex" ErrorMessage="(*) Sexo" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator SetFocusOnError="True" ID="rfvSex" runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="sex" ErrorMessage="(*) Sexo" Text="*"></asp:RequiredFieldValidator>
                     <asp:DropDownList runat="server" ID="sex" CssClass="form-control">
                         <asp:ListItem Text="Selecciona tu sexo" Value=""></asp:ListItem>
                         <asp:ListItem Text="Masculino" Value="Masculino"></asp:ListItem>
@@ -88,15 +89,15 @@
 
                 <div class="form-group">
                     <asp:Label runat="server" Font-Bold="true">Teléfono móvil</asp:Label>
-                    <asp:RequiredFieldValidator SetFocusOnError="True" runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="phone" ErrorMessage="(*) Teléfono" Text="*"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator SetFocusOnError="True" runat="server" ForeColor="Red" ControlToValidate="phone" ErrorMessage="(*) El formato debe ser (XXX) XXX-XXXX" Text="*" ValidationExpression="[(]\d{3}[)]\s\d{3}[-]\d{4}"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator SetFocusOnError="True" ID="rfvPhone" runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="phone" ErrorMessage="(*) Teléfono" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator SetFocusOnError="True" ID="revPhone" runat="server" ForeColor="Red" ControlToValidate="phone" ErrorMessage="(*) El formato debe ser (XXX) XXX-XXXX" Text="*" ValidationExpression="[(]\d{3}[)]\s\d{3}[-]\d{4}"></asp:RegularExpressionValidator>
                     <asp:TextBox runat="server" ID="phone" MaxLength="14" TextMode="SingleLine" CssClass="form-control" placeholder="+54"></asp:TextBox>
                 </div>
 
                 <div class="form-group">
                     <asp:Label runat="server" Font-Bold="true">Dirección de correo alternativa</asp:Label>
-                    <asp:RequiredFieldValidator SetFocusOnError="True" runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="emailAlternative" ErrorMessage="(*) Correo alternativo" Text="*"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator SetFocusOnError="True" runat="server" ForeColor="Red" ControlToValidate="emailAlternative" ErrorMessage="(*) Email incorrecto" Text="*" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator SetFocusOnError="True" ID="rfvEmailAlt" runat="server" ForeColor="Red" InitialValue=" " ControlToValidate="emailAlternative" ErrorMessage="(*) Correo alternativo" Text="*"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator SetFocusOnError="True" ID="revEmailAlt" runat="server" ForeColor="Red" ControlToValidate="emailAlternative" ErrorMessage="(*) Email incorrecto" Text="*" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                     <asp:TextBox runat="server" ID="emailAlternative" TextMode="SingleLine" CssClass="form-control"></asp:TextBox>
                 </div>
 
