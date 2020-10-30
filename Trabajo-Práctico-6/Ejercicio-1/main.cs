@@ -8,6 +8,15 @@ using Ejercicio_1.ConectBD;
 using Ejercicio_1.Model;
 using Newtonsoft.Json;
 
+/*
+ Escribir JSON
+Cree 2 tablas de base de datos:
+Escritor: Campos-> id(PK),apellido, nombre, dni
+Libro: Campos->nombre, año publicación, editorial, idEscritor(FK)
+Cargue algunos campos de prueba en ambas tablas relacionando el escritor con el libro mediante sus claves (PK/FK)
+Mediante C# realice la conexión a la base de datos, obtenga los datos y ejecute la escritura en un archivo con la siguiente estructura JSON.
+ */
+
 namespace Ejercicio_1
 {
     class main

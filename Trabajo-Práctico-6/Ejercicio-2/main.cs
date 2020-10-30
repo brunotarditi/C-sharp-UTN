@@ -7,6 +7,16 @@ using System.Threading.Tasks;
 using Ejercicio_2.Model;
 using Newtonsoft.Json;
 
+/*
+ * Leer JSON
+Ejecute la lectura de un JSON, obtenido desde la URL randomuser.me/api/?results=10
+Codifique las clases necesarias para mapear el JSON en los objetos correspondientes y muestre 
+por la consola los atributos
+First de name
+Last de name
+Username de login
+Password de login
+ */
 
 namespace Ejercicio_2
 {
