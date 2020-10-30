@@ -1,4 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Ejercicio2.aspx.cs" Inherits="Ejercicio2" %>
+﻿ <!--
+        Codifique el siguiente formulario validando y mostrando los errores
+        en un resumen con formato de lista:
+        Valide:
+            -Ningún campo de texto puede estar en blanco.
+            -El nombre y apellido no puede contener caracteres numéricos.
+            -La fecha de nacimiento no puede superar la fecha actual ni ser menor al año 1930.
+            -La contraseña y su confirmación deben ser iguales.
+            -Password debe incluir alguno de los siguientes símbolos !@#$%^&*+;:
+            -Formato de teléfono (XXX) XXX-XXXX
+            -Las palabras de la imagen deben coincidir con la imagen (was threstia)
+            -Valide el formato de la dirección de correo alternativa.
+            -El check box de aceptación de las políticas de privacidad debe estar marcado para considerar valido el formulario.  -->
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Ejercicio2.aspx.cs" Inherits="Ejercicio2" %>
 
 <!DOCTYPE html>
 
@@ -10,6 +24,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     <script></script>
 </head>
+   
 <body>
     <div class="row mt-5 justify-content-center">
         <div class="col-4 px-4 py-2" style="background-color: #E7EAEC">
