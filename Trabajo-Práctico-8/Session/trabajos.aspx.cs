@@ -14,6 +14,14 @@ public partial class Session_t : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+
+        if (Page.IsValid)
+        {
+            Session["fecDesde"] = fecDesde.GetFec();
+            Session["fecHasta"] = fecHasta.GetFec();
+            Session["lugar"] = txtlugar.GetValorCaja();
+            Session["tarea"] = txttarea.GetValorCaja();
+        }
         Response.Redirect("idioma.aspx");
     }
 

@@ -14,7 +14,13 @@ public partial class Session_estudios : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
-        Response.Redirect("trabajos.aspx");
+        if (Page.IsValid)
+        {
+            Session["nivel"] = nivelesEstudio.SelectedValue;
+            Session["titulo"] = txtTitulo.GetValorCaja();
+            Session["establecimiento"] = txtEstablecimiento.GetValorCaja();
+        }
+            Response.Redirect("trabajos.aspx");
     }
 
     public void NivelEstudio()

@@ -18,8 +18,10 @@
             <asp:Label runat="server" ID="sexo" Text=""></asp:Label><br />
             <asp:Label runat="server" ID="fecha" Text=""></asp:Label><br />
             <asp:Label runat="server" ID="estudio" Text=""></asp:Label><br />
+            <asp:Label runat="server" ID="titulo" Text=""></asp:Label><br />
             <asp:Label runat="server" ID="establecimiento" Text=""></asp:Label><br />
-            <asp:Label runat="server" ID="periodo" Text=""></asp:Label><br />
+            <asp:Label runat="server" ID="periodoDesde" Text=""></asp:Label><br />
+            <asp:Label runat="server" ID="periodoHasta" Text=""></asp:Label><br />
             <asp:Label runat="server" ID="lugar" Text=""></asp:Label><br />
             <asp:Label runat="server" ID="tarea" Text=""></asp:Label><br />
             <asp:Label runat="server" ID="idioma" Text=""></asp:Label><br />

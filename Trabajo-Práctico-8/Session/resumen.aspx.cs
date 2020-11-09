@@ -17,6 +17,15 @@ public partial class Session_resumen : System.Web.UI.Page
         nacionalidad.Text = Session["nacionalidad"].ToString();
         sexo.Text = Session["sexo"].ToString();
         fecha.Text = Session["fecha"].ToString();
+        estudio.Text = Session["nivel"].ToString();
+        titulo.Text = Session["titulo"].ToString();
+        establecimiento.Text = Session["establecimiento"].ToString();
+        periodoDesde.Text = Session["fecDesde"].ToString();
+        periodoHasta.Text = Session["fecHasta"].ToString();
+        lugar.Text = Session["lugar"].ToString();
+        tarea.Text = Session["tarea"].ToString();
+        idioma.Text = Session["idioma"].ToString();
+        nivel.Text = Session["nivelIdioma"].ToString();
 
     }
 }

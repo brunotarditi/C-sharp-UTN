@@ -14,6 +14,11 @@ public partial class Session_Idiomas : System.Web.UI.Page
 
     protected void Button1_Click(object sender, EventArgs e)
     {
+        if (Page.IsValid)
+        {
+            Session["idioma"] = txtidioma.GetValorCaja();
+            Session["nivelIdioma"] = radioIdioma.SelectedValue;
+        }
         Response.Redirect("resumen.aspx");
     }
 

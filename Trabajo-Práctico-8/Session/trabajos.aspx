@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="trabajos.aspx.cs" Inherits="Session_t" %>
 
 <%@ Register Src="~/1.ControlesUsuarios/TextBoxNoEmpty.ascx" TagPrefix="uc1" TagName="TextBoxNoEmpty" %>
+<%@ Register Src="~/1.ControlesUsuarios/Fecha.ascx" TagPrefix="uc2" TagName="Fecha" %>
+
 
 
 <!DOCTYPE html>
@@ -17,8 +19,11 @@
         <div class="col-3 px-4 py-4" style="background-color: #F8E18A">
             <form id="form1" runat="server">
                 <div>
-                    <asp:Label ID="Periodo" runat="server" Text="Periodo de Ocupación"></asp:Label>
-                    <uc1:TextBoxNoEmpty runat="server" ID="txtperiodo" />
+                    <asp:Label ID="Periodo" runat="server" Text="Periodo de Ocupación"></asp:Label><br />
+                    <asp:Label ID="desde" runat="server" Text="Desde"></asp:Label>                    
+                    <uc2:Fecha runat="server" ID="fecDesde" />                    
+                    <asp:Label ID="hasta" runat="server" Text="Hasta"></asp:Label>
+                    <uc2:Fecha runat="server" ID="fecHasta" />
                     <asp:Label ID="Lugar" runat="server" Text="Lugar de Trabajo"></asp:Label>
                     <uc1:TextBoxNoEmpty runat="server" ID="txtlugar" />
                     <asp:Label ID="Tarea" runat="server" Text="Tarea desempeñada"></asp:Label>
