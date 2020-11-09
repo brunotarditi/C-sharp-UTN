@@ -1,9 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="datospersonales.aspx.cs" Inherits="Session_datospersonales" %>
 
-<%@ Register Src="~/1.ControlesUsuarios/Fecha.ascx" TagPrefix="uc2" TagName="Fecha" %>
-<%@ Register Src="~/1.ControlesUsuarios/TextBoxNoEmpty.ascx" TagPrefix="uc1" TagName="TextBoxNoEmpty" %>
-<%@ Register Src="~/1.ControlesUsuarios/ComboPaises.ascx" TagPrefix="uc3" TagName="ComboPaises" %>
-<%@ Register Src="~/1.ControlesUsuarios/RadioButtonSex.ascx" TagPrefix="uc4" TagName="RadioButtonSex" %>
+<%@ Register Src="~/ControlesUsuarios/Fecha.ascx" TagPrefix="uc2" TagName="Fecha" %>
+<%@ Register Src="~/ControlesUsuarios/TextBoxNoEmpty.ascx" TagPrefix="uc1" TagName="TextBoxNoEmpty" %>
+<%@ Register Src="~/ControlesUsuarios/ComboPaises.ascx" TagPrefix="uc3" TagName="ComboPaises" %>
+<%@ Register Src="~/ControlesUsuarios/RadioButtonSex.ascx" TagPrefix="uc4" TagName="RadioButtonSex" %>
 
 
 <!DOCTYPE html>
