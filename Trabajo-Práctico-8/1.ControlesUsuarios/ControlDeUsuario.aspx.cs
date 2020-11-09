@@ -15,8 +15,8 @@ public partial class _Default : System.Web.UI.Page
 
    protected void BtnClick(object sender, EventArgs e)
     {
-        lbApellido.InnerHtml = "- " + txtApellido.GetValorCaja();
-        lbNombre.InnerText = "- " + txtNombre.GetValorCaja();
+        lbApellido.InnerHtml = "- " + txtapellido.GetValorCaja();
+        lbNombre.InnerText = "- " + txtNombre.GetValorCaja();              
         lbCuit.InnerText = "- " + txtCuit.GetValorCuit();
         lbEdad.InnerHtml = "- " + txtEdad.GetValorEdad();
         lbSexo.InnerHtml = "- " + RadioButtonSex.GetValorRadio();

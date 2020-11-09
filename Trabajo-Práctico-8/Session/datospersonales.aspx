@@ -18,36 +18,41 @@
 </head>
 <body>
     <div class="row mt-5 justify-content-center">
-        <div class="col-3 px-3 py-3" style="background-color: #E7EAEC">
+        <div class="col-3 px-4 py-4" style="background-color: #F8E18A">
             <form id="form1" runat="server">
                 <div>
-                    <asp:Label ID="lbnombre" runat="server" Text="Nombre"></asp:Label>
-                    <br />
-                    <uc1:TextBoxNoEmpty runat="server" ID="nom" />
-                    <br />
-                    <asp:Label ID="lbapellido" runat="server" Text="Apellido"></asp:Label>
-                    <br />
-                    <uc1:TextBoxNoEmpty runat="server" ID="apellido" />
-                    <br />
-                    <asp:Label ID="lbdni" runat="server" Text="DNI"></asp:Label>
-                    <br />
-                    <uc1:TextBoxNoEmpty runat="server" ID="txtdni" />
-                    <br />
-                    <asp:Label ID="lbdomicilio" runat="server" Text="Domicilio"></asp:Label>
-                    <br />
-                    <uc1:TextBoxNoEmpty runat="server" ID="txtdomicilio" />
-                    <br />
-                    <uc3:ComboPaises runat="server" ID="ComboPaises" />
-                    <br />
+                    <div class="form-group">
+                        <asp:Label ID="lbnombre" runat="server" Text="Nombre"></asp:Label>
+                        <uc1:TextBoxNoEmpty runat="server" ID="nom" />
+                    </div>
+                    <div class="form-group">
+                        <asp:Label ID="lbapellido" runat="server" Text="Apellido"></asp:Label>
+                        <uc1:TextBoxNoEmpty runat="server" ID="apellido" />
+                    </div>
+                    <div class="form-group">
+                        <asp:Label ID="lbdni" runat="server" Text="DNI"></asp:Label>
+                        <uc1:TextBoxNoEmpty runat="server" ID="txtdni" />
+                    </div>
+                    <div class="form-group">
+                        <asp:Label ID="lbdomicilio" runat="server" Text="Domicilio"></asp:Label>
+                        <uc1:TextBoxNoEmpty runat="server" ID="txtdomicilio" />
+                    </div>
+                    <div class="form-group">
+                        <asp:Label ID="lbnacionalidad" runat="server" Text="Nacionalidad"></asp:Label>
+                        <uc3:ComboPaises runat="server" ID="ComboPaises" />
+                    </div>
+                <div class="form-group">
+                    <asp:Label ID="lbsex" runat="server" Text="Sexo: "></asp:Label>
                     <uc4:RadioButtonSex runat="server" ID="RadioButtonSex" />
-                    <br />
-                    <uc2:Fecha runat="server" ID="Fecha" />
-                    <br />
-                    <asp:Button runat="server" ID="btn" Text="Siguiente Paso" OnClick="Button1_Click" />
-                    <br />
                 </div>
-            </form>
-        </div>
+                <asp:Label ID="lbfec" runat="server" Text="Fecha de nacimiento"></asp:Label>
+                <uc2:Fecha runat="server" ID="Fecha" />
+                <div class="justify-content-end" style="text-align: right">
+                    <asp:Button runat="server" ID="btn" Text="Siguiente Paso" CssClass="btn btn-danger" OnClick="Button1_Click" />
+                </div>
+            </div>
+        </form>
+    </div>
     </div>
 </body>
 </html>

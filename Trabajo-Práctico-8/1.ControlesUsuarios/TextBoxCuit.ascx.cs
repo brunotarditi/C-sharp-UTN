@@ -16,6 +16,10 @@ public partial class TextBoxCuit : System.Web.UI.UserControl
     protected void Validar(object sender, ServerValidateEventArgs args)
     {
         args.IsValid = ValidarCuit(txtCuitValido.Text);
+        if (!args.IsValid)
+        {
+            SetValorCuit("");
+        }
         Console.WriteLine(args.IsValid);
     }
 
