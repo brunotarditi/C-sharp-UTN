@@ -43,7 +43,7 @@
                 </div>
                 <div class="form-inline" style="background-color: #C4E4E8">
                     <div class="col-md-1">
-                    <asp:ImageButton ID="img" runat="server" ImageUrl="~/recarga.png" Width="80px" OnClick="Page_Load" Height="80px" />                                                        
+                    <asp:ImageButton ID="img" runat="server" ImageUrl="~/recarga.png" Width="80px" Height="80px" OnClick="Button_Click" />                                                        
                     </div>
                     <div class="col-md-10 text-right">
                         <asp:Label runat="server" ID="resultado" Font-Size="X-Large"></asp:Label>                      

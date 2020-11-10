@@ -46,7 +46,7 @@
                     <uc4:RadioButtonSex runat="server" ID="RadioButtonSex" />
                 </div>
                 <asp:Label ID="lbfec" runat="server" Text="Fecha de nacimiento"></asp:Label>
-                <uc2:Fecha runat="server" ID="Fecha" />
+                <uc2:Fecha runat="server" ID="Fecha" />            
                 <div class="justify-content-end" style="text-align: right">
                     <asp:Button runat="server" ID="btn" Text="Siguiente Paso" CssClass="btn btn-danger" OnClick="Button1_Click" />
                 </div>
