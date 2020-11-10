@@ -9,7 +9,7 @@ public partial class AppWebService : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        ServidorWS.ConvertSoapClient ws = new ServidorWS.ConvertSoapClient();
+        Servicio.ConvertSoapClient ws = new Servicio.ConvertSoapClient();
         try {
             string longitud = ws.Convertir(longitudA.SelectedValue, longitudB.SelectedValue, Convert.ToDouble(valor.Text));
             resultado.Text = longitud;
