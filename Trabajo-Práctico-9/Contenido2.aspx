@@ -2,8 +2,8 @@
 
 <asp:Content runat="server" ID="content" ContentPlaceHolderID="CuerpoPagina">
 
-    <div>
-        PÁGINA DE CONTENIDO 2
+    <div style="font-family:Arial">
+        CONTENIDO 2
     </div>
 
 </asp:Content>

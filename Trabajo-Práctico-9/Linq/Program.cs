@@ -124,7 +124,7 @@ namespace Linq
             Console.WriteLine("La cantidad de salarios es de: " + count);
             Console.WriteLine("El máximo salario es: " + max);
             Console.WriteLine("El promedio de salarios es: " + average);
-            Console.WriteLine("El primer empleado es: " + "ID: {0}, {1} {2}",first.Id , first.Nombre, first.Apellido);
+            Console.WriteLine("El primer empleado es: " + "ID: {0} - {1} {2}",first.Id , first.Nombre, first.Apellido);
         }
     }
 }

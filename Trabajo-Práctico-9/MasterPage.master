@@ -4,26 +4,35 @@
 
 <html>
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <table>
-        <tr><td><asp:HyperLink runat="server" NavigateUrl="~/Contenido1.aspx">Opción 1</asp:HyperLink></td></tr>
-        <tr><td><asp:HyperLink runat="server" NavigateUrl="~/Contenido2.aspx">Opción 2</asp:HyperLink></td></tr>
-        <tr><td>Opción 3</td></tr>
-        
-    </table>
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder id="CuerpoPagina" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
-    </form>
-    <footer runat="server">Pie de página</footer>
+    <asp:Table BorderWidth="1" runat="server" BorderColor="Black" HorizontalAlign="Center">
+        <asp:TableRow>
+            <asp:TableCell BackColor="#FBE4F1" Width="150px">
+                <asp:Label runat="server" Font-Names="Arial">Sección Menú</asp:Label>
+                <br />
+                <br />
+                <a href="Contenido1.aspx" style="font-family:Arial">Opción 1</a><br />
+                <a href="Contenido2.aspx" style="font-family:Arial">Opción 2</a><br />
+                <a href="Contenido3.aspx" style="font-family:Arial">Opción 3</a>
+                <br />
+                <br />
+                <br />
+            </asp:TableCell>
+            <asp:TableCell BackColor="#D5EEEC" Width="600px">
+                <asp:Label runat="server" Font-Names="Arial">Sección Contenido</asp:Label><br /><br /><br />
+                <div>
+                    <asp:ContentPlaceHolder ID="CuerpoPagina" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div><br /><br /><br />
+            </asp:TableCell>
+        </asp:TableRow>
+    </asp:Table>
+
 </body>
-    
+
 </html>
