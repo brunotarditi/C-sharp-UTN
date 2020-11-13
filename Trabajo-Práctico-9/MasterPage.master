@@ -13,15 +13,10 @@
     <asp:Table BorderWidth="1" runat="server" BorderColor="Black" HorizontalAlign="Center">
         <asp:TableRow>
             <asp:TableCell BackColor="#FBE4F1" Width="150px">
-                <asp:Label runat="server" Font-Names="Arial">Sección Menú</asp:Label>
-                <br />
-                <br />
+                <asp:Label runat="server" Font-Names="Arial">Sección Menú</asp:Label><br /><br />
                 <a href="Contenido1.aspx" style="font-family:Arial">Opción 1</a><br />
                 <a href="Contenido2.aspx" style="font-family:Arial">Opción 2</a><br />
-                <a href="Contenido3.aspx" style="font-family:Arial">Opción 3</a>
-                <br />
-                <br />
-                <br />
+                <a href="Contenido3.aspx" style="font-family:Arial">Opción 3</a><br /><br /><br />
             </asp:TableCell>
             <asp:TableCell BackColor="#D5EEEC" Width="600px">
                 <asp:Label runat="server" Font-Names="Arial">Sección Contenido</asp:Label><br /><br /><br />
