@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <table>
+        <tr><td><asp:HyperLink runat="server" NavigateUrl="~/Contenido1.aspx">Opción 1</asp:HyperLink></td></tr>
+        <tr><td><asp:HyperLink runat="server" NavigateUrl="~/Contenido2.aspx">Opción 2</asp:HyperLink></td></tr>
+        <tr><td>Opción 3</td></tr>
+        
+    </table>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder id="CuerpoPagina" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+    <footer runat="server">Pie de página</footer>
+</body>
+    
+</html>
