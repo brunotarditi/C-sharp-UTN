@@ -17,7 +17,7 @@ public partial class AppWebService : System.Web.UI.Page
         if (Page.IsPostBack)
         {
 
-            Servicio.ConvertSoapClient ws = new Servicio.ConvertSoapClient();
+            ServidorWS.ConvertSoapClient ws = new ServidorWS.ConvertSoapClient();
             try
             {
                 string longitud = ws.Convertir(longitudA.SelectedValue, longitudB.SelectedValue, Convert.ToDouble(valor.Text));

@@ -27,223 +27,71 @@ public class Convert : System.Web.Services.WebService
         return "Hola a todos";
     }
     [WebMethod]
-    public string Convertir(string a, string b, double valor)
+    public string Convertir(string opcion1, string opcion2, double valor)
     {
+        double resultado = 0;
         string cadena = "";
-        double resultado;
-        switch (a)
+        switch (opcion1)
         {
             case "Kilometro":
-                
-                switch (b)
-                {
-                    case "Kilometro":
-                        resultado = valor;
-                        cadena = resultado.ToString() + " km";
-                        break;
-
-                    case "Metro":
-                        resultado = valor * 1000;
-                        cadena = resultado.ToString() + " m";
-                        break;
-
-                    case "Decimetro":
-                        resultado = valor * 10000;
-                        cadena = resultado.ToString() + " dm";
-                        break;
-
-                    case "Centimetro":
-                        resultado = valor * 100000;
-                        cadena = resultado.ToString() + " cm";
-                        break;
-
-                    case "Milimetro":
-                        resultado = valor * 1000000;
-                        cadena = resultado.ToString() + " mm";
-                        break;
-
-                    case "Micrometro":
-                        resultado = valor * 1000000000;
-                        cadena = resultado.ToString() + " µm";
-                        break;
-
-                }
+                resultado = valor;
                 break;
 
             case "Metro":
-
-                switch (b)
-                {
-                    case "Kilometro":
-                        resultado = valor / 1000;
-                        cadena = resultado.ToString() + " km";
-                        break;
-
-                    case "Metro":
-                        resultado = valor;
-                        cadena = resultado.ToString() + " m";
-                        break;
-
-                    case "Decimetro":
-                        resultado = valor * 10;
-                        cadena = resultado.ToString() + " dm";
-                        break;
-                    case "Centimetro":
-                        resultado = valor * 100;
-                        cadena = resultado.ToString() + " cm";
-                        break;
-                    case "Milimetro":
-                        resultado = valor * 1000;
-                        cadena = resultado.ToString() + " mm";
-                        break;
-                    case "Micrometro":
-                        resultado = valor * 1000000;
-                        cadena = resultado.ToString() + " µm";
-                        break;
-
-                }
+                resultado = valor / 1000;
                 break;
 
             case "Decimetro":
-
-                switch (b)
-                {
-                    case "Kilometro":
-                        resultado = valor / 10000;
-                        cadena = resultado.ToString() + " km";
-                        break;
-
-                    case "Metro":
-                        resultado = valor / 10;
-                        cadena = resultado.ToString() + " m";
-                        break;
-
-                    case "Decimetro":
-                        resultado = valor;
-                        cadena = resultado.ToString() + " dm";
-                        break;
-                    case "Centimetro":
-                        resultado = valor * 10;
-                        cadena = resultado.ToString() + " cm";
-                        break;
-                    case "Milimetro":
-                        resultado = valor * 100;
-                        cadena = resultado.ToString() + " mm";
-                        break;
-                    case "Micrometro":
-                        resultado = valor * 100000;
-                        cadena = resultado.ToString() + " µm";
-                        break;
-
-                }
+                resultado = valor / 10000;
                 break;
 
             case "Centimetro":
-
-                switch (b)
-                {
-                    case "Kilometro":
-                        resultado = valor / 100000;
-                        cadena = resultado.ToString() + " km";
-                        break;
-
-                    case "Metro":
-                        resultado = valor / 100;
-                        cadena = resultado.ToString() + " m";
-                        break;
-
-                    case "Decimetro":
-                        resultado = valor / 10;
-                        cadena = resultado.ToString() + " dm";
-                        break;
-                    case "Centimetro":
-                        resultado = valor;
-                        cadena = resultado.ToString() + " cm";
-                        break;
-                    case "Milimetro":
-                        resultado = valor * 10;
-                        cadena = resultado.ToString() + " mm";
-                        break;
-                    case "Micrometro":
-                        resultado = valor * 10000;
-                        cadena = resultado.ToString() + " µm";
-                        break;
-
-                }
+                resultado = valor / 100000;
                 break;
 
             case "Milimetro":
-
-                switch (b)
-                {
-                    case "Kilometro":
-                        resultado = valor / 1000000;
-                        cadena = resultado.ToString() + " km";
-                        break;
-
-                    case "Metro":
-                        resultado = valor / 1000;
-                        cadena = resultado.ToString() + " m";
-                        break;
-
-                    case "Decimetro":
-                        resultado = valor / 100;
-                        cadena = resultado.ToString() + " dm";
-                        break;
-                    case "Centimetro":
-                        resultado = valor / 10;
-                        cadena = resultado.ToString() + " cm";
-                        break;
-                    case "Milimetro":
-                        resultado = valor;
-                        cadena = resultado.ToString() + " mm";
-                        break;
-                    case "Micrometro":
-                        resultado = valor * 1000000000;
-                        cadena = resultado.ToString() + " µm";
-                        break;
-
-                }
+                resultado = valor / 1000000;
+                
                 break;
 
             case "Micrometro":
+                resultado = valor / 1000000000;
+                break;
+        }
+        switch (opcion2)
+        {
+            case "Kilometro":
+                resultado += 0;
+                cadena = resultado.ToString() + " km";
+                break;
 
-                switch (b)
-                {
-                    case "Micrometro":
-                        resultado = valor;
-                        cadena = resultado.ToString() + " µm";
-                        break;
+            case "Metro":
+                resultado *= 1000;
+                cadena = resultado.ToString() + " m";
+                break;
 
-                    case "Milimetro":
-                        resultado = valor / 1000;
-                        cadena = resultado.ToString() + " mm";
-                        break;
+            case "Decimetro":
+                resultado *= 10000;
+                cadena = resultado.ToString() + " dm";
+                break;
 
-                    case "Centimetro":
-                        resultado = valor / 10000;
-                        cadena = resultado.ToString() + " cm";
-                        break;
+            case "Centimetro":
+                resultado *= 100000;
+                cadena = resultado.ToString() + " cm";
+                break;
 
-                    case "Decimetro":
-                        resultado = valor / 100000;
-                        cadena = resultado.ToString() + " dm";
-                        break;
-                    
-                    case "Metro":
-                        resultado = valor / 1000000;
-                        cadena = resultado.ToString() + " m";
-                        break;
+            case "Milimetro":
+                resultado *= 1000000;
+                cadena = resultado.ToString() + " mm";
+                break;
 
-                    case "Kilometro":
-                        resultado = valor / 1000000000;
-                        cadena = resultado.ToString() + " km";
-                        break;
-
-                }
+            case "Micrometro":
+                resultado *= 1000000000;
+                cadena = resultado.ToString() + " µm";
                 break;
         }
         return cadena;
+
     }
 
 }

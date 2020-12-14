@@ -42,10 +42,10 @@
                 </asp:DropDownList>
                 </div>
                 <div class="form-inline" style="background-color: #C4E4E8">
-                    <div class="col-md-1">
-                    <asp:ImageButton ID="img" runat="server" ImageUrl="~/recarga.png" Width="80px" Height="80px" OnClick="Button_Click" />                                                        
+                    <div class="col-md-3">
+                    <asp:ImageButton ID="img" runat="server" ImageUrl="~/recarga.png" Width="65px" Height="65px" OnClick="Button_Click" />                                                        
                     </div>
-                    <div class="col-md-10 text-right">
+                    <div class="col-md-9 text-right">
                         <asp:Label runat="server" ID="resultado" Font-Size="X-Large"></asp:Label>                      
                     </div>
                 </div>
@@ -54,6 +54,6 @@
                 </div>
             </form>
         </div>
-    </div>
+    <//div>
 </body>
 </html>
